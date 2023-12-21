@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import logo from "../../public/FOODI-logos_black.png"
+import { FaRegUser } from "react-icons/fa";
 
 import { SlCallIn } from "react-icons/sl";
 const Navbar = () => {
@@ -89,7 +90,7 @@ const Navbar = () => {
       </div>
 
     {/* btn */}
-    <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><SlCallIn/> Contact</a>
+    <button className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser /> Contact</button>
   </div>
 </div>
     </header>

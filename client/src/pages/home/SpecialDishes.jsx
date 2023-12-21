@@ -41,9 +41,8 @@ const SpecialDishes = () => {
     fetch("/menu.json")
       .then((res) => res.json())
       .then((data) => {
-        // const specials = data.filter((item) => item.category === "popular");
-        console.log(data)
-        // setRecipes(specials);
+        const specials = data.filter((item) => item.category === "popular");
+        setRecipes(specials);
       });
   }, []);
   const settings = {
