@@ -3,6 +3,7 @@ import logo from "../../public/FOODI-logos_black.png"
 import { FaRegUser } from "react-icons/fa";
 
 import { SlCallIn } from "react-icons/sl";
+import Modal from './Modal';
 const Navbar = () => {
   
   const [isSticky, setSticky] = useState(false);
@@ -90,7 +91,8 @@ const Navbar = () => {
       </div>
 
     {/* btn */}
-    <button className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser /> Contact</button>
+    <button className="btn bg-green rounded-full px-6 text-white flex items-center gap-2" onClick={()=>document.getElementById('my_modal_5').showModal()}><FaRegUser /> login</button>
+    <Modal/>
   </div>
 </div>
     </header>
