@@ -4,7 +4,11 @@ import { FaRegUser } from "react-icons/fa";
 
 import { SlCallIn } from "react-icons/sl";
 import Modal from './Modal';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
+  console.log(user)
   
   const [isSticky, setSticky] = useState(false);
 

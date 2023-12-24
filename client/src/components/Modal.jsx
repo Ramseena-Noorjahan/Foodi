@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link}from 'react-router-dom'
 import { IoLogoGoogleplus } from "react-icons/io";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import { LiaGithub } from "react-icons/lia";
 import { useForm } from "react-hook-form"
+import { AuthContext } from '../context/AuthProvider';
 
 const Modal = () => {
   const {
@@ -11,8 +12,19 @@ const Modal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm() 
+
+  const { signUpWithGmail} = useContext(AuthContext)
   
   const onSubmit = (data) => console.log(data)
+
+  //google signin
+  const handleLogin = () =>{
+    signUpWithGmail().then((result)=>{
+      const user = result.user
+      alert("login successfull")
+  }).catch((error)=>{
+    console.log(error);
+  })
 
   return (
     <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
@@ -64,7 +76,7 @@ const Modal = () => {
 
         {/* social sign in */}
       <div className='text-center space-x-3 mb-3'>
-        <button className='btn btn-circle hover:bg-green hover:text-white'>
+        <button className='btn btn-circle hover:bg-green hover:text-white' onClick={handleLogin}>
         <IoLogoGoogleplus />
 
         </button>
@@ -82,5 +94,5 @@ const Modal = () => {
 </dialog>
   )
 }
-
+}
 export default Modal
